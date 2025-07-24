@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
+    <div className="fixed top-0 left-0 w-full flex justify-between items-center h-20 px-4 text-white bg-black bg-opacity-60 z-50">
       <h1 className="text-3xl font-bold text-[#00df9a]">ALEX.</h1>
 
       <ul className="hidden md:flex">
