@@ -36,12 +36,12 @@ export default function Experience() {
           Professional Background
         </h3>
         <p>
-          Since 2019, I have been working as a
-          supervisor in parental education for the HoltIS Association. All the
-          projects I have been involved in have been carried out in
-          collaboration with UNICEF. Among these, one of the key initiatives I
-          contributed to was the establishment of HoltIS youth clubs in 140
-          schools nationwide, supporting both middle and high school students.
+          Since 2019, I have been working as a supervisor in parental education
+          for the HoltIS Association. All the projects I have been involved in
+          have been carried out in collaboration with UNICEF. Among these, one
+          of the key initiatives I contributed to was the establishment of
+          HoltIS youth clubs in 140 schools nationwide, supporting both middle
+          and high school students.
         </p>
         <p>
           I strongly value fairplay and believe in both offering and receiving
@@ -49,15 +49,15 @@ export default function Experience() {
           essential in creating meaningful connections and a positive
           environment.
         </p>
-        <p>
+        <div>
           <a
             href="/certificates/previous-experience.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-[#00df9a] font-semibold border-b-2 border-transparent hover:border-[#00df9a] transition-all duration-300">
-            Download Previous Experience PDF
+            className="bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3 inline-block text-center">
+            Previous Experience
           </a>
-        </p>
+        </div>
       </article>
     </section>
   );
