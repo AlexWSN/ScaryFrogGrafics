@@ -14,7 +14,8 @@ const Navbar = () => {
       <img
         src="/images/FROGlogo.png"
         alt="Scary Frog Logo"
-        className="h-12 w-auto object-contain"
+        className="h-12 w-auto object-contain cursor-pointer"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       />
 
       <ul className="hidden md:flex">

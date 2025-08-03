@@ -8,16 +8,29 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 
 function App() {
+  const backgroundStyle = {
+    backgroundImage: 'url("/images/background.png")',
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    minHeight: '100vh',
+  };
+
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Certificate />
-      <Experience />
-      <Contact />
-    </div>
+    <>
+      <Navbar /> {/* E în afara wrapperului cu background */}
+      <div style={backgroundStyle}>
+        <div className="pt-20"> {/* Compensăm pentru înălțimea navbarului fix */}
+          <Hero />
+          <About />
+          <Projects />
+          <Certificate />
+          <Experience />
+          <Contact />
+        </div>
+      </div>
+    </>
   );
 }
 

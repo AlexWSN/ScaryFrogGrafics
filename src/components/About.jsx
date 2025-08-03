@@ -1,39 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function About() {
   return (
     <section
       id="about"
       className="w-full px-6 py-16 bg-black/60 backdrop-blur-sm text-white shadow-2xl border-y-2 border-orange-500 relative overflow-hidden"
-      data-aos="fade-up"
-    >
+      data-aos="fade-up">
       <div className="flex flex-col items-center">
         <h1 className="font-pressstart text-3xl text-orange-500 text-center mb-10 tracking-wider drop-shadow">
           WELCOME TO SCARY FROG GRAPHICS
         </h1>
 
         <div className="bg-gray-800/80 p-8 rounded-2xl shadow-lg text-gray-300 leading-relaxed text-justify space-y-5 w-full max-w-4xl">
-        <p>
-          At Scary Frog Graphics, we believe that every idea deserves a striking
-          visual identity. Our mission is to transform your concepts into
-          designs that captivate, communicate, and create lasting impressions.
-        </p>
-        <p>
-          Whether you're launching a brand, refreshing your image, or telling
-          your story, our team blends creativity with strategy to deliver
-          designs that resonate with your audience and elevate your vision.
-        </p>
-        <p>
-          From bold logos that define your brand to promotional materials that
-          leave a mark, Scary Frog Graphics is your partner in crafting visuals
-          that stand out in a crowded world.
-        </p>
-        <p>
-          Let us help you tell your story, not just in pictures, but in
-          unforgettable experiences. Together, we bring your vision to life with
-          precision, passion, and a touch of artistry.
-        </p>
-        
+          <p>
+            At Scary Frog Graphics, we believe that every idea deserves a
+            striking visual identity. Our mission is to transform your concepts
+            into designs that captivate, communicate, and create lasting
+            impressions.
+          </p>
+          <p>
+            Whether you're launching a brand, refreshing your image, or telling
+            your story, our team blends creativity with strategy to deliver
+            designs that resonate with your audience and elevate your vision.
+          </p>
+          <p>
+            From bold logos that define your brand to promotional materials that
+            leave a mark, Scary Frog Graphics is your partner in crafting
+            visuals that stand out in a crowded world.
+          </p>
+          <p>
+            Let us help you tell your story, not just in pictures, but in
+            unforgettable experiences. Together, we bring your vision to life
+            with precision, passion, and a touch of artistry.
+          </p>
+
           <p className="font-semibold text-white">
             Scary Frog Graphics
             <br />
@@ -65,8 +65,7 @@ export default function About() {
           ].map(({ img, text }, idx) => (
             <div
               key={idx}
-              className="group relative bg-gray-900/80 p-6 rounded-xl shadow-lg text-center transition duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-orange-500/40"
-            >
+              className="group relative bg-gray-900/80 p-6 rounded-xl shadow-lg text-center transition duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-orange-500/40">
               <img
                 src={`/images/${img}`}
                 alt={`Icon ${idx + 1}`}
@@ -104,8 +103,7 @@ export default function About() {
                   fontFamily="Arial, sans-serif"
                   fontWeight="bold"
                   textAnchor="middle"
-                  dominantBaseline="middle"
-                >
+                  dominantBaseline="middle">
                   MAKE IT BOLD
                 </text>
               </mask>
@@ -119,8 +117,7 @@ export default function About() {
               width="100%"
               height="100%"
               fill="url(#gradient)"
-              mask="url(#text-mask)"
-            >
+              mask="url(#text-mask)">
               <animate
                 attributeName="x"
                 from="-100%"
