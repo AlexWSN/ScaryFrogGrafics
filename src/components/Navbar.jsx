@@ -10,7 +10,12 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full flex justify-between items-center h-20 px-4 text-white bg-black bg-opacity-60 z-50">
-      <h1 className="text-3xl font-bold text-[#00df9a]">ALEX.</h1>
+      {/* Logo Image */}
+      <img
+        src="/images/FROGlogo.png"
+        alt="Scary Frog Logo"
+        className="h-12 w-auto object-contain"
+      />
 
       <ul className="hidden md:flex">
         <li className="p-4">
@@ -42,7 +47,13 @@ const Navbar = () => {
             ? "fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 z-10"
             : "fixed left-[-100%]"
         }>
-        <h1 className="text-3xl font-bold text-[#00df9a] m-4">ALEX.</h1>
+        <div className="m-4">
+          <img
+            src="/images/FROGlogo.png"
+            alt="Scary Frog Logo"
+            className="h-12 w-auto object-contain"
+          />
+        </div>
         <ul className="uppercase p-4">
           <li className="p-4 border-b border-gray-600">
             <a href="#about">About</a>
