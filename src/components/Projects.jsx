@@ -1,60 +1,166 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-export default function Projects() {
-  const projects = [
-    {
-      title: "IceCream",
-      desc: "Responsive website using Parcel, SCSS, and JavaScript.",
-      links: [{ label: "Repo", href: "https://github.com/AlexWSN/IceCream" }],
-    },
-    {
-      title: "Scary Frog Graphics",
-      desc: "HTML, CSS, JS – Game-style interface with interactive UI.",
-      links: [
-        { label: "Repo", href: "https://github.com/AlexWSN/webfrog01" },
-        { label: "Live", href: "https://alexwsn.github.io/webfrog01/" },
-      ],
-    },
-  ];
+// Scoatem portofoliu12.png (index 11)
+const images = Array.from({ length: 23 }, (_, i) =>
+  i === 11 ? null : `/images/portofoliu${i + 1}.png`
+).filter(Boolean);
+
+export default function Carousel3D() {
+  const [index, setIndex] = useState(0);
+  const [modalImage, setModalImage] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const total = images.length;
+  const angle = 360 / total;
+  const radius = isMobile ? 400 : 600;
+
+  const prev = () => setIndex((prev) => (prev - 1 + total) % total);
+  const next = () => setIndex((prev) => (prev + 1) % total);
 
   return (
-    <section
+    <div
       id="projects"
-      className="w-full bg-[#151515] py-16 px-4 text-gray-300"
-      data-aos="fade-up">
-      <div className="w-full px-10 lg:px-32 xl:px-48 mx-auto">
-        <header className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#00df9a] mb-2">Projects</h2>
-          <p className="text-gray-400">
-            A selection of my work during the GoIT course and personal practice
-          </p>
-        </header>
+      className="projects relative w-full max-w-6xl mx-auto mt-36 mb-24 px-4"
+      style={{
+        perspective: "1500px",
+        height: isMobile ? "460px" : "540px",
+        position: "relative",
+      }}>
+        
+      {/* Titlu */}
+      <h2
+        className="text-4xl md:text-6xl font-bold mb-16 select-none text-center mx-auto max-w-max"
+        style={{
+          backgroundImage: "url('/images/rust8.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          color: "transparent",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}>
+        PROJECTS
+      </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, i) => (
-            <div
+      {/* Butoane */}
+      <button
+        onClick={prev}
+        className="absolute top-1/2 left-4 md:left-6 -translate-y-1/2 bg-orange-500 p-3 rounded-full shadow-lg hover:bg-orange-600 transition z-30"
+        aria-label="Previous">
+        &#8592;
+      </button>
+      <button
+        onClick={next}
+        className="absolute top-1/2 right-4 md:right-6 -translate-y-1/2 bg-orange-500 p-3 rounded-full shadow-lg hover:bg-orange-600 transition z-30"
+        aria-label="Next">
+        &#8594;
+      </button>
+
+      {/* Cilindru imagini din spate */}
+      <div
+        className="absolute left-1/2 top-1/2"
+        style={{
+          width: isMobile ? "300px" : "400px",
+          height: isMobile ? "200px" : "270px",
+          transformStyle: "preserve-3d",
+          transformOrigin: "50% 50%",
+          transform: `translate(-50%, -50%) rotateY(${-index * angle}deg)`,
+          transition: "transform 0.3s ease-out",
+          willChange: "transform",
+          pointerEvents: "none",
+          zIndex: 10,
+        }}>
+        {images.map((src, i) => {
+          if (i === index) return null;
+          const rotateY = i * angle;
+          return (
+            <img
               key={i}
-              className="bg-gray-900 rounded-xl shadow-xl hover:shadow-[#00df9a]/50 transition-shadow duration-300 p-6">
-              <h3 className="text-2xl font-semibold text-white mb-2">
-                {project.title}
-              </h3>
-              <p className="text-gray-400 mb-4">{project.desc}</p>
-              <div className="flex gap-4">
-                {project.links.map((link, j) => (
-                  <a
-                    key={j}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#00df9a] hover:underline font-medium">
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+              src={src}
+              alt={`Portfolio ${i + 1}`}
+              className="absolute object-contain rounded-lg cursor-pointer"
+              style={{
+                width: isMobile ? "75px" : "110px",
+                height: isMobile ? "55px" : "80px",
+                top: "50%",
+                left: "50%",
+                transform: `
+                  rotateY(${rotateY}deg)
+                  translateZ(${radius}px)
+                  translate(-50%, -50%)
+                `,
+                filter: "brightness(0.2) grayscale(90%)",
+                boxShadow: "none",
+                pointerEvents: "none",
+                transition: "filter 0.5s",
+              }}
+            />
+          );
+        })}
       </div>
-    </section>
+
+      {/* Imaginea activă fixă */}
+      <div
+        className="absolute top-1/2 left-1/2 cursor-pointer"
+        style={{
+          width: isMobile ? "280px" : "480px", // 2x mai mare
+          height: isMobile ? "200px" : "340px", // 2x mai mare
+          transform: "translate(-50%, -50%)",
+          filter: "brightness(1)",
+          boxShadow: "0 10px 40px rgba(255,165,0,0.9)",
+          borderRadius: "12px",
+          zIndex: 20,
+          transition: "all 0.3s ease",
+        }}
+        onClick={() => setModalImage(images[index])}>
+        <img
+          src={images[index]}
+          alt={`Portfolio ${index + 1}`}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            borderRadius: "12px",
+          }}
+        />
+      </div>
+
+      {/* Modal imagine zoom */}
+      {modalImage && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-[999]"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            backdropFilter: "blur(1px)",
+            borderRadius: "20px",
+          }}
+          onClick={() => setModalImage(null)}>
+          <img
+            src={modalImage}
+            alt="Zoom"
+            className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl"
+            style={{
+              
+              boxShadow: "0 0 20px 1px #ff7f00, 0 0 1px 1px #ff7f00",
+              transition: "box-shadow 0.3s ease",
+              borderRadius: "16px",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            onClick={() => setModalImage(null)}
+            className="absolute top-6 right-6 text-white text-5xl hover:text-orange-500 transition">
+            &times;
+          </button>
+        </div>
+      )}
+    </div>
   );
 }

@@ -20,13 +20,13 @@ const Navbar = () => {
 
       <ul className="hidden md:flex">
         <li className="p-4">
-          <a href="#about">About me</a>
+          <a href="#about">About</a>
         </li>
         <li className="p-4">
           <a href="#projects">Projects</a>
         </li>
         <li className="p-4">
-          <a href="#certificate">Certificate</a>
+          <a href="#services">Services</a>
         </li>
         <li className="p-4">
           <a href="#experience">Experience</a>
@@ -63,7 +63,7 @@ const Navbar = () => {
             <a href="#projects">Projects</a>
           </li>
           <li className="p-4 border-b border-gray-600">
-            <a href="#certificate">Certificate</a>
+            <a href="#services">Services</a>
           </li>
           <li className="p-4 border-b border-gray-600">
             <a href="#experience">Experience</a>
