@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="fixed top-0 left-0 w-full flex justify-between items-center h-20 px-4 text-white bg-black bg-opacity-60 z-50">
       {/* Logo Image */}
       <img
-        src="/images/FROGlogo.png"
+        src={`${process.env.PUBLIC_URL}/images/FROGlogo.png`}
         alt="Scary Frog Logo"
         className="h-12 w-auto object-contain cursor-pointer"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -27,9 +27,6 @@ const Navbar = () => {
         </li>
         <li className="p-4">
           <a href="#services">Services</a>
-        </li>
-        <li className="p-4">
-          <a href="#experience">Experience</a>
         </li>
         <li className="p-4">
           <a href="#contact">Contact</a>
@@ -50,7 +47,7 @@ const Navbar = () => {
         }>
         <div className="m-4">
           <img
-            src="/images/FROGlogo.png"
+            src={`${process.env.PUBLIC_URL}/images/FROGlogo.png`}
             alt="Scary Frog Logo"
             className="h-12 w-auto object-contain"
           />
@@ -64,9 +61,6 @@ const Navbar = () => {
           </li>
           <li className="p-4 border-b border-gray-600">
             <a href="#services">Services</a>
-          </li>
-          <li className="p-4 border-b border-gray-600">
-            <a href="#experience">Experience</a>
           </li>
           <li className="p-4">
             <a href="#contact">Contact</a>

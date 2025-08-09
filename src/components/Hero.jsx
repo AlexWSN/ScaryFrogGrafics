@@ -11,8 +11,9 @@ const Hero = () => {
             display: "inline-block",
             cursor: "default",
           }}
-          className="md:py-6">
-          {/* Glow text dedesubt, mereu vizibil */}
+          className="md:py-6"
+        >
+          {/* Glow text dedesubt */}
           <h1
             aria-hidden="true"
             style={{
@@ -29,15 +30,16 @@ const Hero = () => {
               pointerEvents: "none",
               zIndex: 0,
             }}
-            className="md:text-7xl sm:text-6xl text-4xl">
-            WELCOME TO SCARY FROG GRAPHICS
+            className="md:text-6xl sm:text-6xl text-4xl"
+          >
+            WELCOME TO <p>SCARY FROG GRAPHICS</p>
           </h1>
 
           {/* Text cu background-clip */}
           <h1
-            className="md:text-7xl sm:text-6xl text-4xl font-bold"
+            className="md:text-6xl sm:text-6xl text-4xl font-bold"
             style={{
-              backgroundImage: "url('/images/rust8.jpg')",
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               color: "transparent",
@@ -47,30 +49,24 @@ const Hero = () => {
               position: "relative",
               zIndex: 1,
               margin: 0,
-            }}>
-            WELCOME TO SCARY FROG GRAPHICS
+            }}
+          >
+            WELCOME TO
+            <p>SCARY FROG GRAPHICS</p>
           </h1>
         </div>
 
         <div className="flex justify-center my-6">
           <img
-            src="/images/FROG.png"
+            src={`${process.env.PUBLIC_URL}/images/FROG.png`}
             alt="Scary Frog"
             className="w-40 h-auto object-contain"
           />
         </div>
 
-        <p className="text-orange-500 font-bold p-2">
-          Where imagination leaps beyond boundaries{" "}
-        </p>
-
-        <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
-          graphic design is a core pillar of the business through...
-        </p>
-
         <ReactTyped
-          className="md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2"
-          strings={["LOGO", "VISUAL IDENTITY", "PROMOTIONAL MATERIAL"]}
+          className="md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2 text-gray-300"
+          strings={["Logo", "Visual Identity", "Promotional Material"]}
           typeSpeed={120}
           backSpeed={140}
           loop

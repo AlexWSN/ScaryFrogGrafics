@@ -5,7 +5,8 @@ export default function About() {
     <section
       id="about"
       className="w-full px-6 pt-16 pb-10 bg-black/10 backdrop-blur-sm text-white shadow-2xl border-y-2 border-orange-500 relative overflow-hidden"
-      data-aos="fade-up">
+      data-aos="fade-up"
+    >
       <div className="flex flex-col items-center">
         {/* Titlu cu background-clip + glow sincronizat */}
         <div className="relative inline-block select-none mb-10">
@@ -18,7 +19,8 @@ export default function About() {
               filter: "blur(0.1px)",
               margin: 0,
               opacity: 1,
-            }}>
+            }}
+          >
             ABOUT
           </h2>
 
@@ -26,7 +28,7 @@ export default function About() {
           <h2
             className="text-4xl md:text-6xl font-bold relative z-10 text-center mx-auto max-w-max"
             style={{
-              backgroundImage: "url('/images/rust8.jpg')",
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
@@ -35,15 +37,14 @@ export default function About() {
               color: "transparent",
               WebkitTextFillColor: "transparent",
               margin: 0,
-            }}>
+            }}
+          >
             ABOUT
           </h2>
         </div>
 
-        {/* Container text cu fundal rust2.jpg */}
-        <div
-          className="p-8 rounded-2xl shadow-lg text-gray-300 leading-relaxed text-justify space-y-5 w-full max-w-4xl mx-auto"
-        >
+        {/* Container text */}
+        <div className="p-8 rounded-2xl shadow-lg text-gray-300 leading-relaxed text-justify space-y-5 w-full max-w-4xl mx-auto">
           <p>
             At Scary Frog Graphics, we believe that every idea deserves a
             striking visual identity. Our mission is to transform your concepts
@@ -67,8 +68,6 @@ export default function About() {
           </p>
 
           <p className="font-semibold text-white">
-            Scary Frog Graphics
-            <br />
             <span className="italic text-orange-500">
               *Where imagination leaps beyond boundaries.*
             </span>
@@ -80,7 +79,7 @@ export default function About() {
           {[
             {
               img: "arrows.png",
-              text: "Communication is maintained throughout the collaboration...",
+              text: "Communication is maintained throughout the collaboration for details and feedback.",
             },
             {
               img: "atom.png",
@@ -92,14 +91,15 @@ export default function About() {
             },
             {
               img: "message.png",
-              text: "We're just a click away for any questions...",
+              text: "We're just a click away if you have any questions or would like to schedule an appointment.",
             },
           ].map(({ img, text }, idx) => (
             <div
               key={idx}
-              className="group relative bg-gray-900/80 p-6 rounded-xl shadow-lg text-center transition duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-orange-500/40">
+              className="group relative bg-gray-900/80 p-6 rounded-xl shadow-lg text-center transition duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-orange-500/40"
+            >
               <img
-                src={`/images/${img}`}
+                src={`${process.env.PUBLIC_URL}/images/${img}`}
                 alt={`Icon ${idx + 1}`}
                 className="w-12 h-12 mb-4 mx-auto drop-shadow-md group-hover:scale-110 transition"
               />
@@ -109,12 +109,13 @@ export default function About() {
           ))}
         </div>
 
+        {/* Text final cu background-clip */}
         <div className="mt-16 text-center">
           <div
             className="inline-flex flex-col text-3xl md:text-4xl font-bold tracking-wide font-teko leading-tight rounded-full px-16 py-12
-      shadow-[0_0_80px_1px_rgba(255,165,0,0.7)] transition-shadow duration-500"
+            shadow-[0_0_80px_1px_rgba(255,165,0,0.7)] transition-shadow duration-500"
             style={{
-              backgroundImage: "url('/images/rust8.jpg')",
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -122,7 +123,8 @@ export default function About() {
               backgroundClip: "text",
               color: "transparent",
               WebkitTextFillColor: "transparent",
-            }}>
+            }}
+          >
             <span>Let’s</span>
             <span>build</span>
             <span>bridges,</span>
@@ -140,11 +142,12 @@ export default function About() {
                   x="50%"
                   y="50%"
                   fill="white"
-                  fontSize="50"
+                  fontSize="60"
                   fontFamily="Arial, sans-serif"
                   fontWeight="bold"
                   textAnchor="middle"
-                  dominantBaseline="middle">
+                  dominantBaseline="middle"
+                >
                   MAKE IT BOLD
                 </text>
               </mask>
@@ -158,7 +161,8 @@ export default function About() {
               width="100%"
               height="100%"
               fill="url(#gradient)"
-              mask="url(#text-mask)">
+              mask="url(#text-mask)"
+            >
               <animate
                 attributeName="x"
                 from="-100%"

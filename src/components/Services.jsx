@@ -4,7 +4,7 @@ const services = [
   {
     id: 1,
     title: "VISUAL IDENTITY",
-    icon: "/images/Iconite/IDENTITATE VIZUALA ICON.png",
+    icon: process.env.PUBLIC_URL + "/images/Iconite/IDENTITATE VIZUALA ICON.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -53,10 +53,10 @@ const services = [
   {
     id: 2,
     title: "ADVERTISING MATERIALS",
-    icon: "/images/Iconite/MATERIALE PUBLICITARE ICON.png",
+    icon: process.env.PUBLIC_URL + "/images/Iconite/MATERIALE PUBLICITARE ICON.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
-        <h3 className="text-xl font-bold mb-4 text-orange-600">
+        <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
           Advertising Materials
         </h3>
         <p>
@@ -75,10 +75,12 @@ const services = [
   {
     id: 3,
     title: "SOCIAL MEDIA",
-    icon: "/images/Iconite/Social Media ICON.png",
+    icon: process.env.PUBLIC_URL + "/images/Iconite/Social Media ICON.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
-        <h3 className="text-xl font-bold mb-4 text-orange-600">Social Media</h3>
+        <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
+          Social Media
+        </h3>
         <p>
           Scary Frog focuses on creating and managing captivating visual
           strategies for social media platforms. Custom images, engaging posts,
@@ -97,14 +99,22 @@ const services = [
   {
     id: 4,
     title: "BRANDING & REBRANDING",
-    icon: "/images/Iconite/BRANDING ICON.png",
+    icon: process.env.PUBLIC_URL + "/images/Iconite/BRANDING ICON.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
-        <h3 className="text-xl font-bold mb-4 text-orange-600">
+        <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
           Branding & Rebranding
         </h3>
         <p>
-          Create or refresh your brand image with strategy and high-end design.
+          Focus on creating and transforming visual identities that reflect
+          individual values and vision. Whether you are just starting out or
+          looking to update your brand's image, Scary Frog develops customized
+          solutions to help you stand out in the market. <br />
+          In this section, you will find comprehensive branding services, from
+          complete visual identity design to rebranding, aimed at revitalizing
+          and addressing new visual communication directions. Each project is
+          approached with attention to detail and a design that captures the
+          essence of your brand.{" "}
         </p>
       </div>
     ),
@@ -117,11 +127,11 @@ export default function Services() {
   return (
     <div
       id="services"
-      className="relative min-h-screen text-white px-4 py-12 overflow-hidden bg-black max-w-full mx-auto">
+      className="relative min-h-[600px] text-white px-4 pt-12 pb-[calc(80px+1rem)] overflow-hidden bg-[#1a1a1a] max-w-full mx-auto">
       {/* Fundal */}
       <div className="fixed inset-0 -z-10">
         <img
-          src="/images/background.png"
+          src={process.env.PUBLIC_URL + "/images/background.png"}
           alt="Background"
           className="w-full h-full object-cover opacity-10"
         />
@@ -129,15 +139,15 @@ export default function Services() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
-        <img
-          src="/images/FROGlogo.png"
+        {/* <img
+          src={process.env.PUBLIC_URL + "/images/FROGlogo.png"}
           alt="Frog Logo"
           className="w-24 mx-auto mb-10"
-        />
+        />*/}
         <h2
           className="text-4xl font-bold mb-10 tracking-wide select-none mx-auto max-w-max"
           style={{
-            backgroundImage: "url('/images/rust8.jpg')",
+            backgroundImage: `url(${process.env.PUBLIC_URL + "/images/rust8.jpg"})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             color: "transparent",
@@ -185,67 +195,40 @@ export default function Services() {
             duration-300
             ease-in-out
             select-none
-            hover:scale-110
-            hover:shadow-2xl
-            hover:animate-pulse
+            hover:brightness-110
             focus:outline-none
-            focus:ring-4
+            focus:ring-2
             focus:ring-orange-400
+            focus:ring-offset-2
           ">
-          VIEW ALL SERVICES
+          View All Services
         </button>
       </div>
 
-      {/* POPUP */}
       {activePopup && (
         <div
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 px-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50"
           onClick={() => setActivePopup(null)}>
           <div
-            className="relative max-w-lg w-full rounded-lg overflow-hidden shadow-2xl max-h-[80vh]"
-            style={{
-              backgroundImage:
-                "url('/images/anstract-metallic-background-with-grunge-effect.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              border: "8px solid transparent",
-              borderImage: "url('/images/metal-border-texture.png') 40 stretch",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              boxShadow: "0 0 20px 4px rgba(255, 140, 0, 0.9)",
-            }}
+            className="relative max-w-3xl max-h-full overflow-y-auto rounded-lg shadow-lg"
             onClick={(e) => e.stopPropagation()}>
-            {/* Close Button */}
             <button
               onClick={() => setActivePopup(null)}
-              className="absolute top-3 right-3 text-3xl font-bold text-orange-500 hover:text-black transition select-none z-10">
+              className="absolute top-2 right-2 text-white text-3xl font-bold hover:text-orange-600 transition select-none"
+              aria-label="Close popup">
               &times;
             </button>
-
-            {/* Content Wrapper */}
-            <div className="p-6 max-h-[80vh] overflow-y-auto">
-              {activePopup === "all" ? (
-                <div className="bg-white/70 backdrop-blur-md p-6 rounded-lg text-black text-justify font-semibold">
-                  <h3 className="text-2xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.9)] select-none">
-                    All Services
-                  </h3>
-                  <ul className="list-disc ml-6 space-y-2 text-sm">
-                    <li>Business Card (front/back)</li>
-                    <li>Standard Flyer 99x210 mm (front/back)</li>
-                    <li>Custom-sized Flyer (front/back)</li>
-                    <li>Tri-fold Brochure 3x99x210 mm (front/back)</li>
-                    <li>Custom-sized Tri-fold Brochure (front/back)</li>
-                    <li>Custom-sized Brochure</li>
-                    <li>Product Catalog</li>
-                    <li>Custom-sized Poster/Flyer/Leaflet (front/back)</li>
-                    <li>Social Media Visuals</li>
-                    <li>Large Format Printing (banners, posters)</li>
-                  </ul>
-                </div>
-              ) : (
-                services.find((s) => s.id === activePopup)?.popupContent || null
-              )}
-            </div>
+            {activePopup === "all"
+              ? services.map((service) => (
+                  <div key={service.id} className="mb-6">
+                    {service.popupContent}
+                  </div>
+                ))
+              : services
+                  .filter((service) => service.id === activePopup)
+                  .map((service) => (
+                    <div key={service.id}>{service.popupContent}</div>
+                  ))}
           </div>
         </div>
       )}

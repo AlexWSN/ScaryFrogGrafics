@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 
 // Scoatem portofoliu12.png (index 11)
 const images = Array.from({ length: 23 }, (_, i) =>
-  i === 11 ? null : `/images/portofoliu${i + 1}.png`
+  i === 11
+    ? null
+    : `${process.env.PUBLIC_URL}/images/portofoliu${i + 1}.png`
 ).filter(Boolean);
 
 export default function Carousel3D() {
@@ -32,20 +34,21 @@ export default function Carousel3D() {
         perspective: "1500px",
         height: isMobile ? "460px" : "540px",
         position: "relative",
-      }}>
-        
+      }}
+    >
       {/* Titlu */}
       <h2
         className="text-4xl md:text-6xl font-bold mb-16 select-none text-center mx-auto max-w-max"
         style={{
-          backgroundImage: "url('/images/rust8.jpg')",
+          backgroundImage: `url('${process.env.PUBLIC_URL}/images/rust8.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "transparent",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           WebkitTextFillColor: "transparent",
-        }}>
+        }}
+      >
         PROJECTS
       </h2>
 
@@ -53,13 +56,15 @@ export default function Carousel3D() {
       <button
         onClick={prev}
         className="absolute top-1/2 left-4 md:left-6 -translate-y-1/2 bg-orange-500 p-3 rounded-full shadow-lg hover:bg-orange-600 transition z-30"
-        aria-label="Previous">
+        aria-label="Previous"
+      >
         &#8592;
       </button>
       <button
         onClick={next}
         className="absolute top-1/2 right-4 md:right-6 -translate-y-1/2 bg-orange-500 p-3 rounded-full shadow-lg hover:bg-orange-600 transition z-30"
-        aria-label="Next">
+        aria-label="Next"
+      >
         &#8594;
       </button>
 
@@ -76,7 +81,8 @@ export default function Carousel3D() {
           willChange: "transform",
           pointerEvents: "none",
           zIndex: 10,
-        }}>
+        }}
+      >
         {images.map((src, i) => {
           if (i === index) return null;
           const rotateY = i * angle;
@@ -110,16 +116,18 @@ export default function Carousel3D() {
       <div
         className="absolute top-1/2 left-1/2 cursor-pointer"
         style={{
-          width: isMobile ? "280px" : "480px", // 2x mai mare
-          height: isMobile ? "200px" : "340px", // 2x mai mare
+          width: isMobile ? "280px" : "480px",
+          height: isMobile ? "200px" : "340px",
           transform: "translate(-50%, -50%)",
           filter: "brightness(1)",
-          boxShadow: "0 10px 40px rgba(255,165,0,0.9)",
+          boxShadow: "0 5px 10px rgba(255,165,0,0.9)",
           borderRadius: "12px",
           zIndex: 20,
           transition: "all 0.3s ease",
+          animation: "pulseShadow 4.5s infinite ease-in-out",
         }}
-        onClick={() => setModalImage(images[index])}>
+        onClick={() => setModalImage(images[index])}
+      >
         <img
           src={images[index]}
           alt={`Portfolio ${index + 1}`}
@@ -141,13 +149,13 @@ export default function Carousel3D() {
             backdropFilter: "blur(1px)",
             borderRadius: "20px",
           }}
-          onClick={() => setModalImage(null)}>
+          onClick={() => setModalImage(null)}
+        >
           <img
             src={modalImage}
             alt="Zoom"
             className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl"
             style={{
-              
               boxShadow: "0 0 20px 1px #ff7f00, 0 0 1px 1px #ff7f00",
               transition: "box-shadow 0.3s ease",
               borderRadius: "16px",
@@ -156,7 +164,8 @@ export default function Carousel3D() {
           />
           <button
             onClick={() => setModalImage(null)}
-            className="absolute top-6 right-6 text-white text-5xl hover:text-orange-500 transition">
+            className="absolute top-6 right-6 text-white text-5xl hover:text-orange-500 transition"
+          >
             &times;
           </button>
         </div>
