@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -12,14 +12,13 @@ function randomBetween(min, max) {
 }
 
 function SparksAndAshes() {
-  // Mai multe particule, poziționate aleator pe toată înălțimea paginii
   const sparks = Array.from({ length: 50 }, (_, i) => ({
     top: randomBetween(0, 100),
     left: randomBetween(0, 100),
     delay: Math.random() * 3,
     direction: i % 2 === 0 ? "left" : "right",
-    duration: randomBetween(2, 4),  // viteze mai mari (2-4s)
-    size: randomBetween(2, 4),      // particule mai mici (2-4px)
+    duration: randomBetween(2, 4),
+    size: randomBetween(2, 4),
   }));
 
   const ashes = Array.from({ length: 30 }, (_, i) => ({
@@ -39,7 +38,6 @@ function SparksAndAshes() {
           border-radius: 50%;
           pointer-events: none;
           opacity: 0.8;
-          will-change: transform, opacity;
         }
         .spark {
           background-color: orange;
@@ -54,44 +52,20 @@ function SparksAndAshes() {
           animation-iteration-count: infinite;
         }
         @keyframes sparkUpLeft {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.8;
-          }
-          100% {
-            transform: translate(-30px, -150px) scale(0.5);
-            opacity: 0;
-          }
+          0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+          100% { transform: translate(-30px, -150px) scale(0.5); opacity: 0; }
         }
         @keyframes sparkUpRight {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.8;
-          }
-          100% {
-            transform: translate(30px, -150px) scale(0.5);
-            opacity: 0;
-          }
+          0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+          100% { transform: translate(30px, -150px) scale(0.5); opacity: 0; }
         }
         @keyframes ashUpLeft {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.4;
-          }
-          100% {
-            transform: translate(-20px, -120px) scale(0.4);
-            opacity: 0;
-          }
+          0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+          100% { transform: translate(-20px, -120px) scale(0.4); opacity: 0; }
         }
         @keyframes ashUpRight {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.4;
-          }
-          100% {
-            transform: translate(20px, -120px) scale(0.4);
-            opacity: 0;
-          }
+          0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+          100% { transform: translate(20px, -120px) scale(0.4); opacity: 0; }
         }
       `}</style>
 
@@ -131,9 +105,28 @@ function SparksAndAshes() {
 }
 
 function App() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const backgroundStyle = {
-    backgroundImage: 'url("/images/background.png")',
+    backgroundImage: `url(${process.env.PUBLIC_URL}/images/background.png)`,
     backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    minHeight: "100vh",
+    position: "relative",
+    overflow: "hidden",
+  };
+
+  const mobileBackgroundStyle = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/images/background-mobile.png)`,
+    backgroundAttachment: "scroll",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -145,7 +138,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div style={backgroundStyle}>
+      <div style={isMobile ? mobileBackgroundStyle : backgroundStyle}>
         <div className="pt-20 relative">
           <Hero />
           <About />
@@ -153,7 +146,6 @@ function App() {
           <Services />
           <Contact />
           <Footer />
-
           <div
             style={{
               position: "absolute",
@@ -163,7 +155,6 @@ function App() {
               height: "100%",
               pointerEvents: "none",
               zIndex: 1000,
-              overflow: "visible",
             }}
           >
             <SparksAndAshes />

@@ -5,8 +5,7 @@ export default function About() {
     <section
       id="about"
       className="w-full px-6 pt-16 pb-10 bg-black/10 backdrop-blur-sm text-white shadow-2xl border-y-2 border-orange-500 relative overflow-hidden"
-      data-aos="fade-up"
-    >
+      data-aos="fade-up">
       <div className="flex flex-col items-center">
         {/* Titlu cu background-clip + glow sincronizat */}
         <div className="relative inline-block select-none mb-10">
@@ -19,8 +18,7 @@ export default function About() {
               filter: "blur(0.1px)",
               margin: 0,
               opacity: 1,
-            }}
-          >
+            }}>
             ABOUT
           </h2>
 
@@ -37,8 +35,7 @@ export default function About() {
               color: "transparent",
               WebkitTextFillColor: "transparent",
               margin: 0,
-            }}
-          >
+            }}>
             ABOUT
           </h2>
         </div>
@@ -96,8 +93,7 @@ export default function About() {
           ].map(({ img, text }, idx) => (
             <div
               key={idx}
-              className="group relative bg-gray-900/80 p-6 rounded-xl shadow-lg text-center transition duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-orange-500/40"
-            >
+              className="group relative bg-gray-900/80 p-6 rounded-xl shadow-lg text-center transition duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-orange-500/40">
               <img
                 src={`${process.env.PUBLIC_URL}/images/${img}`}
                 alt={`Icon ${idx + 1}`}
@@ -123,8 +119,7 @@ export default function About() {
               backgroundClip: "text",
               color: "transparent",
               WebkitTextFillColor: "transparent",
-            }}
-          >
+            }}>
             <span>Let’s</span>
             <span>build</span>
             <span>bridges,</span>
@@ -132,9 +127,13 @@ export default function About() {
           </div>
         </div>
 
-        {/* SVG Animated Text */}
+        {/* SVG Animated Text - Responsive */}
         <div className="mt-14 w-full">
-          <svg width="100%" height="150" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            viewBox="0 0 1000 200"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet"
+            style={{ width: "100%", height: "auto" }}>
             <defs>
               <mask id="text-mask">
                 <rect width="100%" height="100%" fill="black" />
@@ -142,12 +141,11 @@ export default function About() {
                   x="50%"
                   y="50%"
                   fill="white"
-                  fontSize="60"
+                  fontSize="8vw" /* responsive: 8% din lățimea viewportului */
                   fontFamily="Arial, sans-serif"
                   fontWeight="bold"
                   textAnchor="middle"
-                  dominantBaseline="middle"
-                >
+                  dominantBaseline="middle">
                   MAKE IT BOLD
                 </text>
               </mask>
@@ -161,8 +159,7 @@ export default function About() {
               width="100%"
               height="100%"
               fill="url(#gradient)"
-              mask="url(#text-mask)"
-            >
+              mask="url(#text-mask)">
               <animate
                 attributeName="x"
                 from="-100%"
