@@ -4,7 +4,7 @@ const services = [
   {
     id: 1,
     title: "VISUAL IDENTITY",
-    icon: "/images/Iconite/IDENTITATE VIZUALA ICON.png",
+    icon: "/images/identitatevizualaicon.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -53,7 +53,7 @@ const services = [
   {
     id: 2,
     title: "ADVERTISING MATERIALS",
-    icon: "/images/Iconite/MATERIALE PUBLICITARE ICON.png",
+    icon: "/images/materialepublicitareicon.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -75,7 +75,7 @@ const services = [
   {
     id: 3,
     title: "SOCIAL MEDIA",
-    icon: "/images/Iconite/Social Media ICON.png",
+    icon: "/images/socialmediaicon.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -99,7 +99,7 @@ const services = [
   {
     id: 4,
     title: "BRANDING & REBRANDING",
-    icon: "/images/Iconite/BRANDING ICON.png",
+    icon: "/images/brandingicon.png",
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -114,7 +114,7 @@ const services = [
           complete visual identity design to rebranding, aimed at revitalizing
           and addressing new visual communication directions. Each project is
           approached with attention to detail and a design that captures the
-          essence of your brand.
+          essence of your brand.{" "}
         </p>
       </div>
     ),
@@ -127,8 +127,8 @@ export default function Services() {
   return (
     <div
       id="services"
-      className="relative min-h-[600px] text-white px-4 pt-12 pb-[calc(80px+1rem)] overflow-hidden bg-[#1a1a1a] max-w-full mx-auto">
-      {/* Background */}
+      className="relative min-h-screen text-white px-4 pt-12 pb-[calc(80px+1rem)] overflow-hidden bg-[#1a1a1a] max-w-full mx-auto">
+      {/* Fundal */}
       <div className="fixed inset-0 -z-10">
         <img
           src="/images/background.png"
@@ -139,6 +139,11 @@ export default function Services() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
+        {/* <img
+          src="/images/FROGlogo.png"
+          alt="Frog Logo"
+          className="w-24 mx-auto mb-10"
+        />*/}
         <h2
           className="text-4xl font-bold mb-10 tracking-wide select-none mx-auto max-w-max"
           style={{
@@ -234,8 +239,87 @@ export default function Services() {
                   <h3 className="text-3xl font-extrabold mb-6 text-orange-500 drop-shadow-[0_0_10px_rgba(255,165,0,0.8)] select-none">
                     All Services
                   </h3>
-                  {/* Lista completă de servicii */}
-                  {/* ... conținut neschimbat */}
+
+                  {/* Branding & Design */}
+                  <section className="mb-6">
+                    <h4 className="text-xl font-bold text-orange-400 mb-3">
+                      Branding & Design
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      <li>Business Card (front/back)</li>
+                      <li>Standard Flyer 99x210 mm (front/back)</li>
+                      <li>Custom-sized Flyer (front/back)</li>
+                      <li>Tri-fold Brochure 3x99x210 mm (front/back)</li>
+                      <li>Custom-sized Tri-fold Brochure (front/back)</li>
+                      <li>Custom-sized Brochure</li>
+                      <li>Product Catalog</li>
+                      <li>Custom-sized Poster/Flyer</li>
+                      <li>CD/DVD</li>
+                      <li>T-Shirt/Hoodie</li>
+                      <li>
+                        Icons (contact, web, mail, social media, other icons)
+                      </li>
+                      <li>Custom-sized Banner</li>
+                      <li>Custom-sized City Light</li>
+                      <li>Certificate A4/B5/A3 etc.</li>
+                      <li>Badge</li>
+                      <li>Invitation/Voucher/Event Ticket</li>
+                      <li>Event Wristbands</li>
+                      <li>Tattoo</li>
+                      <li>Roll-up Banner</li>
+                      <li>Presentation Folder</li>
+                      <li>Restaurant Menu</li>
+                      <li>
+                        Logo Creation (2 simple versions: white and black)
+                      </li>
+                    </ul>
+                    <p className="mt-2 italic text-orange-300">
+                      Logo Effects & Styling (colors, 3D effect, shadows,
+                      background attachment, etc.)
+                    </p>
+                  </section>
+
+                  {/* Digital & Online */}
+                  <section className="mb-6">
+                    <h4 className="text-xl font-bold text-orange-400 mb-3">
+                      Digital & Online
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      <li>Logo Redesign</li>
+                      <li>Facebook/Instagram Profile Image</li>
+                      <li>Facebook Cover Banner</li>
+                      <li>Facebook/Instagram Flyer Image</li>
+                      <li>Online Brochure</li>
+                      <li>Online Catalog</li>
+                      <li>Online Poster/Flyer</li>
+                      <li>Online Tickets</li>
+                      <li>Custom Desktop Wallpaper</li>
+                      <li>Custom Phone Wallpaper</li>
+                      <li>Mock-up</li>
+                      <li>Website/App/Software Icons</li>
+                      <li>Photo/Image/Video Editing</li>
+                      <li>Color Correction, Lighting, Color Effects</li>
+                    </ul>
+                    <p className="mt-2 italic text-orange-300">
+                      Editing/Modification (cropping elements, removing objects
+                      and imperfections, background change/removal, etc.)
+                    </p>
+                  </section>
+
+                  {/* Video & Multimedia */}
+                  <section>
+                    <h4 className="text-xl font-bold text-orange-400 mb-3">
+                      Video & Multimedia
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      <li>Product Photo Editing</li>
+                      <li>Slideshow Video</li>
+                      <li>Video Editing & Montage</li>
+                      <li>Lyric Video</li>
+                      <li>Promo Video</li>
+                      <li>Product Video Editing & Montage</li>
+                    </ul>
+                  </section>
                 </div>
               ) : (
                 services.find((s) => s.id === activePopup)?.popupContent || null
@@ -244,9 +328,7 @@ export default function Services() {
           </div>
         </div>
       )}
-
-      {/* Banner optimizat */}
-      <section className="absolute bottom-0 left-0 w-full h-[56px] sm:h-[72px] md:h-[80px] lg:h-[92px] overflow-hidden -mx-4">
+      <section className="absolute bottom-0 left-0 w-full h-[64px] sm:h-[92px] md:h-[80px] overflow-hidden -mx-4">
         <img
           src="/images/jason-y-WoV7qcl8rOg-unsplash.jpg"
           alt="Metal Banner"
