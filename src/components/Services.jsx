@@ -144,20 +144,39 @@ export default function Services() {
           alt="Frog Logo"
           className="w-24 mx-auto mb-10"
         />*/}
-        <h2
-        className="md:text-7xl sm:text-6xl text-4xl font-bold"
-        style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            color: "transparent",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textShadow: "0 0 10px rgba(0, 0, 0, 0.4)",
-          }}>
-          SERVICES
-        </h2>
+        <div className="relative inline-block select-none mb-10 mx-auto max-w-max">
+          {/* Glow dedesubt */}
+          <h2
+            aria-hidden="true"
+            className="md:text-6xl sm:text-6xl text-4xl font-bold absolute top-0 left-0 w-full z-0 pointer-events-none"
+            style={{
+              color: "white",
+              filter: "blur(0.1px)",
+              margin: 0,
+              opacity: 1,
+              textAlign: "center",
+            }}>
+            SERVICES
+          </h2>
+
+          {/* Text cu background-clip */}
+          <h2
+            className="md:text-6xl sm:text-6xl text-4xl font-bold relative z-10 text-center mx-auto max-w-max"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              WebkitTextFillColor: "transparent",
+              margin: 0,
+            }}>
+            SERVICES
+          </h2>
+        </div>
+
         <p className="mb-8 max-w-xl mx-auto text-gray-300 text-justify">
           With the services provided by Scary Frog Graphics, you can easily
           convey your message. In the end, it will reach your target clearly and

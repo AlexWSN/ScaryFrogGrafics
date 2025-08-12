@@ -141,7 +141,7 @@ export default function About() {
                   x="50%"
                   y="50%"
                   fill="white"
-                  fontSize="8vw" /* responsive: 8% din lățimea viewportului */
+                  fontSize="clamp(24px, 8vw, 60px)"
                   fontFamily="Arial, sans-serif"
                   fontWeight="bold"
                   textAnchor="middle"
