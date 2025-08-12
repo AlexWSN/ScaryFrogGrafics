@@ -3,7 +3,7 @@ import { ReactTyped } from "react-typed";
 
 const Hero = () => {
   return (
-    <div className="text-white">
+    <div className="text-black">
       <div className="max-w-[800px] w-full h-screen mx-auto text-center flex flex-col justify-center">
         <div
           style={{
@@ -11,49 +11,51 @@ const Hero = () => {
             display: "inline-block",
             cursor: "default",
           }}
-          className="md:py-6"
-        >
+          className="md:py-6">
           {/* Glow text dedesubt */}
-          <h1
+          <div
             aria-hidden="true"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              margin: 0,
-              color: "black",
-              filter: "blur(8px)",
-              opacity: 1,
-              fontWeight: "bold",
-              width: "100%",
-              userSelect: "none",
-              pointerEvents: "none",
-              zIndex: 0,
-            }}
-            className="md:text-6xl sm:text-6xl text-4xl"
-          >
-            WELCOME TO <p>SCARY FROG GRAPHICS</p>
-          </h1>
+            className="absolute top-0 left-0 w-full z-0 select-none pointer-events-none"
+            style={{ filter: "blur(8px)" }}>
+            <h1 className="md:text-6xl sm:text-6xl text-4xl font-bold leading-tight m-0">
+              WELCOME TO
+            </h1>
+            <h2 className="md:text-6xl sm:text-6xl text-4xl font-bold leading-tight m-0">
+              SCARY FROG GRAPHICS
+            </h2>
+          </div>
 
           {/* Text cu background-clip */}
-          <h1
-            className="md:text-6xl sm:text-6xl text-4xl font-bold"
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              color: "transparent",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              position: "relative",
-              zIndex: 1,
-              margin: 0,
-            }}
-          >
-            WELCOME TO
-            <p>SCARY FROG GRAPHICS</p>
-          </h1>
+          <div className="relative z-10">
+            <h1
+              className="md:text-6xl sm:text-6xl text-4xl font-bold leading-tight m-0"
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                color: "transparent",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                margin: 0,
+              }}>
+              WELCOME TO
+            </h1>
+            <h2
+              className="md:text-6xl sm:text-6xl text-4xl font-bold leading-tight m-0"
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                color: "transparent",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                margin: 0,
+              }}>
+              SCARY FROG GRAPHICS
+            </h2>
+          </div>
         </div>
 
         <div className="flex justify-center my-6">

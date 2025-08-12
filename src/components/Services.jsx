@@ -127,7 +127,7 @@ export default function Services() {
   return (
     <div
       id="services"
-      className="relative min-h-screen text-white px-4 pt-12 pb-[calc(80px+1rem)] overflow-hidden bg-[#1a1a1a] max-w-full mx-auto">
+      className="relative min-h-[600px] max-w-full mx-auto px-4 overflow-hidden bg-[#1a1a1a] text-white flex flex-col justify-center items-center pt-12 pb-[calc(80px+1rem)]">
       {/* Fundal */}
       <div className="fixed inset-0 -z-10">
         <img
@@ -148,7 +148,7 @@ export default function Services() {
           {/* Glow dedesubt */}
           <h2
             aria-hidden="true"
-            className="md:text-6xl sm:text-6xl text-4xl font-bold absolute top-0 left-0 w-full z-0 pointer-events-none"
+            className="md:text-4xl sm:text-3xl text-2xl font-bold absolute top-0 left-0 w-full z-0 pointer-events-none"
             style={{
               color: "white",
               filter: "blur(0.1px)",
@@ -161,7 +161,7 @@ export default function Services() {
 
           {/* Text cu background-clip */}
           <h2
-            className="md:text-6xl sm:text-6xl text-4xl font-bold relative z-10 text-center mx-auto max-w-max"
+            className="md:text-4xl sm:text-3xl text-2xl font-bold relative z-10 text-center mx-auto max-w-max"
             style={{
               backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
               backgroundSize: "cover",
