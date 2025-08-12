@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ScaryFrogGraphics/static/css/main.a6f6eed4.css",
-    "main.js": "/ScaryFrogGraphics/static/js/main.2480ce33.js",
+    "main.css": "/ScaryFrogGraphics/static/css/main.52c55053.css",
+    "main.js": "/ScaryFrogGraphics/static/js/main.6e1db3e6.js",
     "index.html": "/ScaryFrogGraphics/index.html",
-    "main.a6f6eed4.css.map": "/ScaryFrogGraphics/static/css/main.a6f6eed4.css.map",
-    "main.2480ce33.js.map": "/ScaryFrogGraphics/static/js/main.2480ce33.js.map"
+    "main.52c55053.css.map": "/ScaryFrogGraphics/static/css/main.52c55053.css.map",
+    "main.6e1db3e6.js.map": "/ScaryFrogGraphics/static/js/main.6e1db3e6.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6f6eed4.css",
-    "static/js/main.2480ce33.js"
+    "static/css/main.52c55053.css",
+    "static/js/main.6e1db3e6.js"
   ]
 }
