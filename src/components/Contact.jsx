@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const ContactForm = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -19,26 +21,36 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form data submitted:", formData);
-    setSubmitted(true);
+    setError("");
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    const serviceID = "service_v8xxoms";
+    const templateID = "template_806cp4a";
+    const publicKey = "SoZ7XBey-7oRxgUkZ";
 
-    setTimeout(() => setSubmitted(false), 5000);
+    emailjs.send(serviceID, templateID, formData, publicKey).then(
+      (response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        setTimeout(() => setSubmitted(false), 5000);
+      },
+      (err) => {
+        console.error("FAILED...", err);
+        setError("Ceva nu a mers bine, încearcă din nou.");
+      }
+    );
   };
 
   return (
     <section
       id="contact"
-      className="contact min-h-screen flex flex-col justify-center items-center bg-black px-4 py-32 text-white relative"
-    >
-      {/* Glow text dedesubt */}
+      className="contact min-h-screen flex flex-col justify-center items-center bg-black px-4 py-32 text-white relative">
+      {/* Titlu */}
       <h2
         aria-hidden="true"
         style={{
@@ -57,12 +69,10 @@ const ContactForm = () => {
           zIndex: 0,
           whiteSpace: "nowrap",
         }}
-        className="md:text-7xl sm:text-6xl text-4xl"
-      >
+        className="md:text-7xl sm:text-6xl text-4xl">
         Contact Form
       </h2>
 
-      {/* Text cu background-clip */}
       <h2
         className="md:text-7xl sm:text-6xl text-4xl font-bold"
         style={{
@@ -77,20 +87,17 @@ const ContactForm = () => {
           zIndex: 1,
           margin: 0,
           whiteSpace: "nowrap",
-        }}
-      >
+        }}>
         Contact Form
       </h2>
 
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-xl bg-zinc-900/90 backdrop-blur-md p-8 rounded-lg shadow-2xl space-y-6 border border-orange-500 mt-16"
-      >
+        className="w-full max-w-xl bg-zinc-900/90 backdrop-blur-md p-8 rounded-lg shadow-2xl space-y-6 border border-orange-500 mt-16">
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-semibold text-orange-300"
-          >
+            className="block text-sm font-semibold text-orange-300">
             Name
           </label>
           <input
@@ -108,8 +115,7 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-semibold text-orange-300"
-          >
+            className="block text-sm font-semibold text-orange-300">
             Email
           </label>
           <input
@@ -127,8 +133,7 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="subject"
-            className="block text-sm font-semibold text-orange-300"
-          >
+            className="block text-sm font-semibold text-orange-300">
             Subject
           </label>
           <input
@@ -146,8 +151,7 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="message"
-            className="block text-sm font-semibold text-orange-300"
-          >
+            className="block text-sm font-semibold text-orange-300">
             Message
           </label>
           <textarea
@@ -158,21 +162,23 @@ const ContactForm = () => {
             placeholder="Type your thoughts here..."
             rows="6"
             className="w-full mt-1 px-4 py-2 bg-zinc-800 text-white border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
-            required
-          ></textarea>
+            required></textarea>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 rounded transition duration-300 uppercase tracking-wider shadow-md hover:shadow-orange-500/50"
-        >
+          className="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 rounded transition duration-300 uppercase tracking-wider shadow-md hover:shadow-orange-500/50">
           Let it fly!
         </button>
 
         {submitted && (
           <p className="text-green-400 text-center font-semibold mt-4">
-            Message sent successfully!
+            Mesaj trimis cu succes!
           </p>
+        )}
+
+        {error && (
+          <p className="text-red-500 text-center font-semibold mt-4">{error}</p>
         )}
       </form>
     </section>

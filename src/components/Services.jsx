@@ -177,12 +177,6 @@ export default function Services() {
           </h2>
         </div>
 
-        <p className="mb-8 max-w-xl mx-auto text-gray-300 text-justify">
-          With the services provided by Scary Frog Graphics, you can easily
-          convey your message. In the end, it will reach your target clearly and
-          quickly, just as you intended.
-        </p>
-
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {services.map((service) => (
             <button
