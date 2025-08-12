@@ -63,7 +63,7 @@ const ContactForm = () => {
       </h1>
 
       {/* Text cu background-clip */}
-      <h1
+      <h2
         className="md:text-7xl sm:text-6xl text-4xl font-bold"
         style={{
           backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
@@ -80,7 +80,7 @@ const ContactForm = () => {
         }}
       >
         Contact Form
-      </h1>
+      </h2>
 
       <form
         onSubmit={handleSubmit}

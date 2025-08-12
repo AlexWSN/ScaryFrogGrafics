@@ -4,7 +4,7 @@ const services = [
   {
     id: 1,
     title: "VISUAL IDENTITY",
-    icon: "/images/identitatevizualaicon.png",
+    icon: `${process.env.PUBLIC_URL}/images/identitatevizualaicon.png`,
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -53,7 +53,7 @@ const services = [
   {
     id: 2,
     title: "ADVERTISING MATERIALS",
-    icon: "/images/materialepublicitareicon.png",
+    icon: `${process.env.PUBLIC_URL}/images/materialepublicitareicon.png`,
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -75,7 +75,7 @@ const services = [
   {
     id: 3,
     title: "SOCIAL MEDIA",
-    icon: "/images/socialmediaicon.png",
+    icon: `${process.env.PUBLIC_URL}/images/socialmediaicon.png`,
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -99,7 +99,7 @@ const services = [
   {
     id: 4,
     title: "BRANDING & REBRANDING",
-    icon: "/images/brandingicon.png",
+    icon: `${process.env.PUBLIC_URL}/images/brandingicon.png`,
     popupContent: (
       <div className="p-6 bg-black/70 backdrop-blur-md rounded-lg max-h-[70vh] overflow-y-auto text-white text-justify font-semibold">
         <h3 className="text-3xl font-extrabold mb-4 text-orange-600 drop-shadow-[0_0_10px_rgba(255,140,0,0.8)] select-none">
@@ -131,7 +131,7 @@ export default function Services() {
       {/* Fundal */}
       <div className="fixed inset-0 -z-10">
         <img
-          src="/images/background.png"
+          src={`${process.env.PUBLIC_URL}/images/background.png`}
           alt="Background"
           className="w-full h-full object-cover opacity-10"
         />
@@ -140,14 +140,14 @@ export default function Services() {
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         {/* <img
-          src="/images/FROGlogo.png"
+          src={`${process.env.PUBLIC_URL}/images/FROGlogo.png`}
           alt="Frog Logo"
           className="w-24 mx-auto mb-10"
         />*/}
         <h2
           className="text-4xl font-bold mb-10 tracking-wide select-none mx-auto max-w-max"
           style={{
-            backgroundImage: "url('/images/rust8.jpg')",
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             color: "transparent",
@@ -214,12 +214,11 @@ export default function Services() {
           <div
             className="relative max-w-lg w-full rounded-lg overflow-hidden shadow-2xl max-h-[80vh]"
             style={{
-              backgroundImage:
-                "url('/images/anstract-metallic-background-with-grunge-effect.jpg')",
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/anstract-metallic-background-with-grunge-effect.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               border: "8px solid transparent",
-              borderImage: "url('/images/metal-border-texture.png') 40 stretch",
+              borderImage: `url(${process.env.PUBLIC_URL}/images/metal-border-texture.png) 40 stretch`,
               backdropFilter: "blur(8px)",
               WebkitBackdropFilter: "blur(8px)",
               boxShadow: "0 0 20px 4px rgba(255, 140, 0, 0.9)",
@@ -330,7 +329,7 @@ export default function Services() {
       )}
       <section className="absolute bottom-0 left-0 w-full h-[64px] sm:h-[92px] md:h-[80px] overflow-hidden -mx-4">
         <img
-          src="/images/jason-y-WoV7qcl8rOg-unsplash.jpg"
+          src={`${process.env.PUBLIC_URL}/images/jason-y-WoV7qcl8rOg-unsplash.jpg`}
           alt="Metal Banner"
           className="w-full h-full object-cover object-center rotate-180 brightness-100"
         />
