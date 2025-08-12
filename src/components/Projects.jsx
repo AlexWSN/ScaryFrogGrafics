@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-// Scoatem portofoliu12.png (index 11)
+// Scoatem portofoliu12.jpg (index 11)
 const images = Array.from({ length: 23 }, (_, i) =>
   i === 11
     ? null
-    : `${process.env.PUBLIC_URL}/images/portofoliu${i + 1}.png`
+    : `${process.env.PUBLIC_URL}/images/portofoliu${i + 1}.jpg`
 ).filter(Boolean);
 
 export default function Carousel3D() {
@@ -116,8 +116,8 @@ export default function Carousel3D() {
       <div
         className="absolute top-1/2 left-1/2 cursor-pointer"
         style={{
-          width: isMobile ? "280px" : "480px",
-          height: isMobile ? "200px" : "340px",
+          width: isMobile ? "270px" : "480px",
+          height: isMobile ? "150px" : "270px",
           transform: "translate(-50%, -50%)",
           filter: "brightness(1)",
           boxShadow: "0 5px 10px rgba(255,165,0,0.9)",
