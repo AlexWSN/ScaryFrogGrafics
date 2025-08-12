@@ -39,7 +39,7 @@ const ContactForm = () => {
       className="contact min-h-screen flex flex-col justify-center items-center bg-black px-4 py-32 text-white relative"
     >
       {/* Glow text dedesubt */}
-      <h1
+      <h2
         aria-hidden="true"
         style={{
           position: "absolute",
@@ -60,7 +60,7 @@ const ContactForm = () => {
         className="md:text-7xl sm:text-6xl text-4xl"
       >
         Contact Form
-      </h1>
+      </h2>
 
       {/* Text cu background-clip */}
       <h2

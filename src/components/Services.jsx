@@ -145,8 +145,8 @@ export default function Services() {
           className="w-24 mx-auto mb-10"
         />*/}
         <h2
-          className="text-4xl font-bold mb-10 tracking-wide select-none mx-auto max-w-max"
-          style={{
+        className="md:text-7xl sm:text-6xl text-4xl font-bold"
+        style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/images/rust8.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -327,7 +327,7 @@ export default function Services() {
           </div>
         </div>
       )}
-      <section className="absolute bottom-0 left-0 w-full h-[64px] sm:h-[92px] md:h-[80px] overflow-hidden -mx-4">
+      <section className="absolute bottom-0 left-0 w-full h-[64px] sm:h-[92px] md:h-[80px] overflow-hidden">
         <img
           src={`${process.env.PUBLIC_URL}/images/jason-y-WoV7qcl8rOg-unsplash.jpg`}
           alt="Metal Banner"
