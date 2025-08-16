@@ -141,7 +141,7 @@ export default function About() {
                   x="50%"
                   y="50%"
                   fill="white"
-                  fontSize="clamp(24px, 8vw, 60px)"
+                  fontSize="clamp(24px, 60vw, 60px)"
                   fontFamily="Arial, sans-serif"
                   fontWeight="bold"
                   textAnchor="middle"

@@ -12,14 +12,13 @@ function randomBetween(min, max) {
 }
 
 function SparksAndAshes() {
-  // Mai multe particule, poziționate aleator pe toată înălțimea paginii
   const sparks = Array.from({ length: 50 }, (_, i) => ({
     top: randomBetween(0, 100),
     left: randomBetween(0, 100),
     delay: Math.random() * 3,
     direction: i % 2 === 0 ? "left" : "right",
-    duration: randomBetween(2, 4), // viteze mai mari (2-4s)
-    size: randomBetween(2, 4), // particule mai mici (2-4px)
+    duration: randomBetween(2, 4),
+    size: randomBetween(2, 4),
   }));
 
   const ashes = Array.from({ length: 30 }, (_, i) => ({
@@ -54,44 +53,20 @@ function SparksAndAshes() {
           animation-iteration-count: infinite;
         }
         @keyframes sparkUpLeft {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.8;
-          }
-          100% {
-            transform: translate(-30px, -150px) scale(0.5);
-            opacity: 0;
-          }
+          0% { transform: translate(0,0) scale(1); opacity: 0.8; }
+          100% { transform: translate(-30px,-150px) scale(0.5); opacity: 0; }
         }
         @keyframes sparkUpRight {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.8;
-          }
-          100% {
-            transform: translate(30px, -150px) scale(0.5);
-            opacity: 0;
-          }
+          0% { transform: translate(0,0) scale(1); opacity: 0.8; }
+          100% { transform: translate(30px,-150px) scale(0.5); opacity: 0; }
         }
         @keyframes ashUpLeft {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.4;
-          }
-          100% {
-            transform: translate(-20px, -120px) scale(0.4);
-            opacity: 0;
-          }
+          0% { transform: translate(0,0) scale(1); opacity: 0.4; }
+          100% { transform: translate(-20px,-120px) scale(0.4); opacity: 0; }
         }
         @keyframes ashUpRight {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.4;
-          }
-          100% {
-            transform: translate(20px, -120px) scale(0.4);
-            opacity: 0;
-          }
+          0% { transform: translate(0,0) scale(1); opacity: 0.4; }
+          100% { transform: translate(20px,-120px) scale(0.4); opacity: 0; }
         }
       `}</style>
 
@@ -104,8 +79,7 @@ function SparksAndAshes() {
             left: `${pos.left}%`,
             width: `${pos.size}px`,
             height: `${pos.size}px`,
-            animationName:
-              pos.direction === "left" ? "sparkUpLeft" : "sparkUpRight",
+            animationName: pos.direction === "left" ? "sparkUpLeft" : "sparkUpRight",
             animationDuration: `${pos.duration.toFixed(2)}s`,
             animationDelay: `${pos.delay.toFixed(2)}s`,
           }}
@@ -121,8 +95,7 @@ function SparksAndAshes() {
             left: `${pos.left}%`,
             width: `${pos.size}px`,
             height: `${pos.size}px`,
-            animationName:
-              pos.direction === "left" ? "ashUpLeft" : "ashUpRight",
+            animationName: pos.direction === "left" ? "ashUpLeft" : "ashUpRight",
             animationDuration: `${pos.duration.toFixed(2)}s`,
             animationDelay: `${pos.delay.toFixed(2)}s`,
           }}
@@ -133,21 +106,25 @@ function SparksAndAshes() {
 }
 
 function App() {
-  const backgroundStyle = {
-    backgroundImage: `url(${process.env.PUBLIC_URL}/images/background.png)`,
-    backgroundAttachment: "fixed",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    minHeight: "100vh",
-    position: "relative",
-    overflow: "hidden",
-  };
-
   return (
     <>
       <Navbar />
-      <div style={backgroundStyle}>
+      <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+        {/* Background fix pentru iPhone */}
+        <img
+          src={`${process.env.PUBLIC_URL}/images/background.jpg`}
+          alt="background"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover",
+            zIndex: -1,
+          }}
+        />
+
         <div className="pt-20 relative">
           <Hero />
           <About />
@@ -166,7 +143,8 @@ function App() {
               pointerEvents: "none",
               zIndex: 1000,
               overflow: "visible",
-            }}>
+            }}
+          >
             <SparksAndAshes />
           </div>
         </div>
